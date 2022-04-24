@@ -11,7 +11,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <main></main>
+      <main>
+        <h1>Tree DND</h1>
+      </main>
     </Fragment>
   )
 }
