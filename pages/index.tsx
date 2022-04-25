@@ -2,6 +2,10 @@ import type { NextPage } from 'next'
 import { Fragment } from 'react'
 import Head from 'next/head'
 
+import styles from 'styles/Home.module.css'
+import { Tree } from 'components/Tree'
+import { LeafDetails } from 'components/LeafDetails.tsx'
+
 const Home: NextPage = () => {
   return (
     <Fragment>
@@ -11,8 +15,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <main>
-        <h1>Tree DND</h1>
+      <main className={styles.layout}>
+        <Tree />
+        <LeafDetails />
       </main>
     </Fragment>
   )

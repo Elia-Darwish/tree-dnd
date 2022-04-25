@@ -1,7 +1,4 @@
-interface TreeData {
-  label: string
-  children: Array<Node | Leaf>
-}
+type TreeData = Array<Node | Leaf>
 
 interface Node {
   label: string
