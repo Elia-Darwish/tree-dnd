@@ -23,4 +23,5 @@ interface LeafInfo {
   description: string
 }
 
-export type { TreeData, Node, Leaf, isNode, LeafInfo }
+export type { TreeData, Node, Leaf, LeafInfo }
+export { isNode }

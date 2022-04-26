@@ -1,0 +1,92 @@
+.container {
+  position: relative;
+}
+
+.container:first-of-type:not(:only-of-type):before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: -16px;
+  bottom: -16px;
+
+  width: 2px;
+
+  background-color: hsl(var(--hsl-outline));
+}
+
+.node {
+  position: relative;
+
+  appearance: none;
+  border: none;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px;
+  padding-right: 24px;
+
+  font-size: var(--font-size-lg);
+  color: hsl(var(--hsl-outline));
+
+  background-color: hsl(var(--hsl-bg-highlight));
+
+  cursor: pointer;
+}
+
+.node::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: -16px;
+  bottom: -16px;
+
+  width: 2px;
+
+  background-color: hsl(var(--hsl-outline));
+}
+
+.container:last-of-type .node::before {
+  bottom: 50%;
+}
+
+.node::after {
+  content: '';
+  position: absolute;
+  left: -24px;
+  bottom: calc(50% - 1px);
+
+  height: 2px;
+  width: 24px;
+
+  background-color: hsl(var(--hsl-outline));
+}
+
+.node__icon {
+  width: 24px;
+  height: 24px;
+
+  color: hsl(var(--hsl-primary));
+}
+
+.node[data-selected='true']{
+  color: hsl(var(--hsl-primary-light));
+}
+
+.node[data-selected='true'] + .children {
+  --hsl-outline: var(--hsl-primary-light);
+}
+
+.children {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+  margin-top: 16px;
+  margin-left: 48px;
+}

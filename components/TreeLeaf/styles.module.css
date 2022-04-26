@@ -1,0 +1,53 @@
+.node {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px;
+  padding-right: 24px;
+
+  font-size: var(--font-size-md);
+  color: hsl(var(--hsl-outline));
+  text-decoration: none;
+
+  background-color: hsl(var(--hsl-bg-highlight));
+}
+
+.node::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: -16px;
+  bottom: -16px;
+
+  width: 2px;
+
+  background-color: hsl(var(--hsl-outline));
+}
+
+.container:last-of-type .node::before {
+  bottom: 50%;
+}
+
+.node::after {
+  content: '';
+  position: absolute;
+  left: -24px;
+  bottom: calc(50% - 1px);
+
+  height: 2px;
+  width: 24px;
+
+  background-color: hsl(var(--hsl-outline));
+}
+
+.node__icon {
+  width: 18px;
+  height: 18px;
+
+  color: hsl(var(--hsl-primary));
+}
