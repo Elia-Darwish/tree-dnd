@@ -18,12 +18,12 @@ function Tree() {
   }, [fetch])
 
   return (
-    <section className={styles.container} aria-label="data tree">
+    <section className={styles.container} aria-label="data tree" aria-live="polite" aria-busy={isLoading}>
       {(() => {
         switch (true) {
           case isError:
             return (
-              <div className={styles.error}>
+              <div className={styles.error} role="alert">
                 <span>There was an error loading the tree data</span>
                 <button
                   onClick={() => {
@@ -43,13 +43,17 @@ function Tree() {
             )
 
           case isSuccess:
-            return data?.map((item) => {
-              if (isNode(item)) {
-                return <TreeNode key={item.label} data={item} />
-              } else {
-                return <TreeLeaf key={item.id} data={item} />
-              }
-            })
+            return (
+              <ul className={styles.list}>
+                {data?.map((item) => {
+                  if (isNode(item)) {
+                    return <TreeNode key={item.label} data={item} />
+                  } else {
+                    return <TreeLeaf key={item.id} data={item} />
+                  }
+                })}
+              </ul>
+            )
 
           default:
             return null

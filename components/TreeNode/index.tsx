@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, HTMLAttributes, useState } from 'react'
+import { DetailedHTMLProps, HTMLAttributes, useEffect, useState } from 'react'
 
 import styles from './styles.module.css'
 
@@ -13,13 +13,23 @@ interface TreeNodeProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, H
    * The Node data to be rendered.
    */
   data: Node
+  /**
+   * Pass the selected state to the child nodes.
+   */
+  parentSelected?: boolean
 }
 
-function TreeNode({ data }: TreeNodeProps) {
+function TreeNode({ data, parentSelected }: TreeNodeProps) {
   const [pressed, setPressed] = useState(false)
 
+  useEffect(() => {
+    if (typeof parentSelected !== 'boolean') return
+
+    setPressed(parentSelected)
+  }, [parentSelected])
+
   return (
-    <article className={styles.container}>
+    <li className={styles.container} aria-label={data.label}>
       <Toggle
         className={styles.node}
         pressed={pressed}
@@ -32,16 +42,16 @@ function TreeNode({ data }: TreeNodeProps) {
         <span>{data.label}</span>
       </Toggle>
 
-      <div className={styles.children}>
+      <ul className={styles.children}>
         {data?.children.map((item) => {
           if (isNode(item)) {
-            return <TreeNode key={item.label} data={item} />
+            return <TreeNode key={item.label} data={item} parentSelected={pressed} />
           } else {
             return <TreeLeaf key={item.id} data={item} />
           }
         })}
-      </div>
-    </article>
+      </ul>
+    </li>
   )
 }
 

@@ -12,12 +12,12 @@ interface TreeLeafProps {
 
 function TreeLeaf({ data }: TreeLeafProps) {
   return (
-    <article className={styles.container}>
+    <li className={styles.container} aria-label={data.label}>
       <a href={`#${data.id}`} className={styles.node}>
         <ChevronDoubleRight className={styles.node__icon} />
         <span>{data.label}</span>
       </a>
-    </article>
+    </li>
   )
 }
 

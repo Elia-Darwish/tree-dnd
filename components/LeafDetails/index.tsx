@@ -9,7 +9,7 @@ import { Spinner } from 'components/icons'
 
 function LeafDetails() {
   const [id, setId] = useState('')
-  const { data, fetch, isLoading, isError, isSuccess, isIdle } = useFetch<LeafInfo>()
+  const { data, error, fetch, isLoading, isError, isSuccess, isIdle } = useFetch<LeafInfo>()
 
   useEffect(() => {
     function handleHashChange() {
@@ -35,7 +35,7 @@ function LeafDetails() {
   }, [id, fetch])
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container} aria-live="polite" aria-busy={isLoading} aria-label="leaf details">
       {(() => {
         switch (true) {
           case isIdle:
@@ -47,7 +47,7 @@ function LeafDetails() {
 
           case isError:
             return (
-              <div className={styles.card}>
+              <div className={styles.card} role="alert">
                 <p>There was an error while fetching the data</p>
                 <button
                   onClick={() => {
@@ -65,7 +65,7 @@ function LeafDetails() {
 
           case isSuccess:
             return data ? (
-              <section className={styles.card} aria-label={`${id} details`}>
+              <article className={styles.card} aria-label={`${id} details`}>
                 <p>
                   <strong>Created At:</strong> {format(new Date(data.createdAt), 'dd.MM.yyyy')}
                 </p>
@@ -79,14 +79,14 @@ function LeafDetails() {
                   <strong>last modified By:</strong> {data.lastModifiedBy}
                 </p>
                 <p>{data.description}</p>
-              </section>
+              </article>
             ) : null
 
           default:
             return null
         }
       })()}
-    </div>
+    </section>
   )
 }
 
