@@ -4,7 +4,7 @@ import Head from 'next/head'
 
 import styles from 'styles/Home.module.css'
 import { Tree } from 'components/Tree'
-import { LeafDetails } from 'components/LeafDetails.tsx'
+import { LeafDetails } from 'components/LeafDetails'
 
 const Home: NextPage = () => {
   return (
