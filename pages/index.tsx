@@ -5,6 +5,7 @@ import Head from 'next/head'
 import styles from 'styles/Home.module.css'
 import { Tree } from 'components/Tree'
 import { LeafDetails } from 'components/LeafDetails'
+import { ThemeToggle } from 'components/ThemeToggle'
 
 const Home: NextPage = () => {
   return (
@@ -18,6 +19,7 @@ const Home: NextPage = () => {
       <main className={styles.layout}>
         <Tree />
         <LeafDetails />
+        <ThemeToggle />
       </main>
     </Fragment>
   )

@@ -1,0 +1,44 @@
+.toggle {
+  appearance: none;
+  border: none;
+
+  background-color: hsl(var(--hsl-accent));
+  color: hsl(var(--hsl-darker));
+
+  position: fixed;
+  top: 24px;
+  right: 24px;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: 4px;
+}
+
+.toggle > svg {
+  position: absolute;
+
+  inset: 0;
+
+  width: 60%;
+  height: 60%;
+
+  margin: auto;
+
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toggle > svg[data-direction="left"] {
+  transform: rotate(-45deg);
+}
+
+.toggle > svg[data-visible="true"][data-direction="left"] {
+  transform: rotate(0deg);
+  opacity: 1;
+}
+
+.toggle > svg[data-visible="true"][data-direction="right"] {
+  transform: rotate(-45deg);
+  opacity: 1;
+}
