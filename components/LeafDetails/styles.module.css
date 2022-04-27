@@ -22,7 +22,7 @@
 
   border-radius: 4px;
 
-  background-color: hsl(var(--hsl-bg));
+  background-color: hsl(var(--hsl-bg-highlight));
   color: hsl(var(--hsl-text));
 }
 .card > button {
