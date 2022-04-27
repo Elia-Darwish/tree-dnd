@@ -67,7 +67,7 @@ function Tree() {
     setTree(newTree)
 
     // eslint-disable-next-line no-console
-    console.log(tree)
+    console.log(newTree)
   }
 
   return (
