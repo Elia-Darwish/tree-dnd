@@ -11,7 +11,7 @@ interface Leaf {
 }
 
 function isNode(item: Node | Leaf): item is Node {
-  return (item as Node).children !== undefined
+  return item.hasOwnProperty('children')
 }
 
 interface LeafInfo {

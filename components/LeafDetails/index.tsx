@@ -9,7 +9,7 @@ import { Spinner } from 'components/icons'
 
 function LeafDetails() {
   const [id, setId] = useState('')
-  const { data, error, fetch, isLoading, isError, isSuccess, isIdle } = useFetch<LeafInfo>()
+  const { data, fetch, isLoading, isError, isSuccess, isIdle } = useFetch<LeafInfo>()
 
   useEffect(() => {
     function handleHashChange() {

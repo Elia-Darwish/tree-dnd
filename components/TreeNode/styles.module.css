@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.container:first-of-type:not(:only-of-type):before {
+.container:not(:last-of-type):before {
   content: '';
   position: absolute;
   left: -24px;
@@ -16,7 +16,9 @@
 
 .node {
   position: relative;
+}
 
+.node button {
   appearance: none;
   border: none;
 
@@ -72,7 +74,7 @@
   color: hsl(var(--hsl-primary));
 }
 
-.node[data-selected='true']{
+.node[data-selected='true'] button {
   color: hsl(var(--hsl-primary-light));
 }
 

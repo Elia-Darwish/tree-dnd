@@ -3,12 +3,13 @@
   --hsl-primary-light: 252 100% 65%;
   --hsl-accent: 163 100% 50%;
 
-  --hsl-dark: 0 0% 15%;
-  --hsl-darker: 0 0% 10%;
   --hsl-light: 0 0% 90%;
   --hsl-lighter: 0 0% 95%;
-  --hsl-black: 0 0% 0%;
   --hsl-white: 0 0% 100%;
+
+  --hsl-dark: 0 0% 13%;
+  --hsl-darker: 0 0% 9%;
+  --hsl-black: 0 0% 0%;
 
   --hsl-bg: var(--hsl-light);
   --hsl-bg-highlight: var(--hsl-lighter);

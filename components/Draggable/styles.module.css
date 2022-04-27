@@ -1,0 +1,19 @@
+.draggable[data-dragging="true"] {
+  opacity: 0.5;
+}
+
+.draggable[data-where="before"] {
+  box-shadow: 0 -8px 0 0px hsl(var(--hsl-primary) / 50%);
+}
+
+.draggable[data-where="after"] {
+  box-shadow: 0 8px 0 0px hsl(var(--hsl-primary) / 50%);
+}
+
+.draggable[data-where="none"] {
+  box-shadow: none;
+}
+
+.draggable[data-disabled="true"] {
+  opacity: 0.5;
+}
